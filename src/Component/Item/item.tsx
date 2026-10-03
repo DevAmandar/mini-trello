@@ -4,7 +4,7 @@ import { ItemType } from "../../Type/item-type";
 import { BoardContext } from "../../context/BoardContext";
 import { ListType } from "../../Type/list-type";
 import { MdDelete } from "react-icons/md";
-import { ActiveItemContex } from "../../context/ActiveItemContext";
+// import { ActiveItemContex } from "../../context/ActiveItemContext";
 import { Bounce, toast } from "react-toastify";
 import DraggableComponent from "../../drag and drop/drag/DraggableComponent";
 
@@ -28,12 +28,12 @@ export default function Item({ item, list, boardIndex }: Props): ReactNode {
     }
 
     // Active Item
-    const { seActiveItem } = useContext(ActiveItemContex)
-    const handleClickItem = () => {
-        seActiveItem(item.id)
-    }
+    // const { seActiveItem } = useContext(ActiveItemContex)
+    // const handleClickItem = () => {
+    //     seActiveItem(item.id)
+    // }
 
-    const { activeId } = useContext(ActiveItemContex)
+    // const { activeId } = useContext(ActiveItemContex)
 
     const notify = () => toast.success('successfully deletes', {
         position: "bottom-right",
@@ -50,9 +50,9 @@ export default function Item({ item, list, boardIndex }: Props): ReactNode {
     return (
         <DraggableComponent id={item.id} data={{...item, listId:list.id}} >
             <div
-                onClick={handleClickItem}
+                // onClick={handleClickItem}
                 className={`
-                    ${item.id === activeId ? 'outline-2 outline-blue-500' : ''} 
+                    {item.id === activeId ? 'outline-2 outline-blue-500' : ''} isNotActive Z
                     flex justify-between bg-white rounded-md p-1.5 m-2 cursor-pointer
                     transition-all duration-300 ease-in-out
                     ${isRemoving ? 'opacity-0 translate-x-[-20px] outline-none overflow-hidden' : ''}

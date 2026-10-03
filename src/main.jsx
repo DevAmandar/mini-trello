@@ -1,14 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { HashRouter } from 'react-router'   // ← تغییر: BrowserRouter → HashRouter
 import './index.css'
 import App from './App.tsx'
 import './variables.css'
-import { BrowserRouter, Route, Routes } from "react-router";
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
-  </StrictMode>,
+    </HashRouter>
 )

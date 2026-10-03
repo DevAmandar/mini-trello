@@ -1,73 +1,57 @@
 // data/listData copy.ts
 export const listDatas = [
     {
-        taskId: '1',
-        taskTitle: 'title 1',
-        description:"descreiption...",
+        taskId: '1564543',
+        taskTitle: 'Programing',
+        description:"Career advancement...",
         lists: [
             {
-                id: 'list_1',
+                id: 'list_16556616',
                 title: 'To Do',
                 items: [
-                    { id: '1', description: 'Task 1' },
-                    { id: '2', description: 'Task 2' },
+                    { id: '115313', description: 'Learn Next.js' },
+                    { id: '51561313', description: 'Learn TanStack Query' },
+                    { id: '26541634', description: 'Learn RTK Query' },
                 ]
             },
             {
-                id: 'list_2',
+                id: 'list_28486468',
+                title: 'Doing',
+                items: [
+                    { id: '26213', description: 'TypeScript improvment' },
+                    { id: '62156316', description: 'Testing' },
+                ]
+            },
+            {
+                id: 'list_3561531',
                 title: 'Done',
                 items: [
-                    { id: '4', description: 'Task 3' },
+                    { id: '4516', description: 'js' },
+                    { id: '4513535', description: 'React' },
+                    { id: '1561653', description: 'redux toolkit' },
                 ]
             }
         ]
     },
     {
-        taskId: '2',
-        taskTitle: 'title 2',
-        description:"",
+        taskId: '251563',
+        taskTitle: 'Sports',
+        description:"Improving LifeStyle",
         lists: [
             {
-                id: 'list_3',
-                title: 'To Do 2',
+                id: 'list_353131',
+                title: 'To Do',
                 items: [
-                    { id: '6', description: 'one tod do 2' },
-                    { id: '7', description: 'two tod do 2' },
-                    { id: '8', description: 'three tod do 2' }
+                    { id: '564165', description: 'Adding aerobics' },
                 ]
             },
             {
-                id: 'list_4',
-                title: 'Done 2',
+                id: 'list_456165',
+                title: 'Done',
                 items: [
-                    { id: '9', description: 'one done 2' },
-                    { id: '10', description: 'two done 2' }
+                    { id: '104656', description: 'Healthy Nutrition' }
                 ]
             }
         ]
     },
-    {
-        taskId: '3',
-        taskTitle: 'title 3',
-        description:"kdslkcd;vmdfjofjmolvmkldfnvdf",
-        lists: [
-            {
-                id: 'list_5',
-                title: 'To Do 3',
-                items: [
-                    { id: '11', description: 'one tod do 3' },
-                    { id: '12', description: 'two tod do 3' },
-                    { id: '13', description: 'three tod do 3' }
-                ]
-            },
-            {
-                id: 'list_6',
-                title: 'Done 3',
-                items: [
-                    { id: '14', description: 'one done 3' },
-                    { id: '15', description: 'two done 3' }
-                ]
-            }
-        ]
-    }
 ]
