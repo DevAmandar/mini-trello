@@ -4,7 +4,7 @@ import { BoardContext } from "../../context/BoardContext";
 import { MdDeleteOutline, MdOutlineModeEdit } from "react-icons/md";
 import { Bounce, toast } from "react-toastify";
 import Modal from "../../modal/Modal";
-import EditTaskModal from "../../modal/EditTaskModal/EditTaskModal";
+import EditTaskModal from "../../modal/EditTaskModal/EditTaskModal"
 
 type Props = {
     boardIndex: number

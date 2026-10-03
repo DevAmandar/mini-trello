@@ -78,7 +78,7 @@ export default function List({ list, listIndex, boardIndex }: Props): ReactNode 
                 </Modal>
 
                 <Modal title={`Edit title list`} modalRef={editModalRef}>
-                    <EditTitleListModal boardIndex={boardIndex} listIndex={listIndex} editModalRef={editModalRef} />
+                    <EditTitleListModal boardIndex={boardIndex} listIndex={listIndex} modalRef={editModalRef} />
                 </Modal>
             </div>
         </DroppableComponent>
