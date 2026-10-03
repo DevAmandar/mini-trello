@@ -14,7 +14,7 @@ A modern, drag-and-drop Kanban board built with React, TypeScript, and Tailwind 
 ![GitHub stars](https://img.shields.io/github/stars/devamandar/kanban-board?color=yellow)
 
 <p align="center">
-  <a href="https://devamandar.github.io/kanban-board/">Live Demo</a>
+  <a href="https://devamandar.github.io/mini-trello/">Live Demo</a>
 </p>
 
 ---
