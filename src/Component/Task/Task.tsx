@@ -14,7 +14,7 @@ type Props = {
 }
 export default function Task({ id, boardIndex, title, description }: Props): ReactNode {
 
-    const modalRef=useRef<HTMLDialogElement | null>(null)
+    const modalRef = useRef<HTMLDialogElement | null>(null)
 
     const [isRemoving, setIsRemoving] = useState(false)
 
@@ -47,11 +47,12 @@ export default function Task({ id, boardIndex, title, description }: Props): Rea
     }
     return (
         <>
-            <div className={`rounded-md border-2 border-blue-100 bg-blue-200 w-[285px] 
-        transition-all duration-300 ease-in-out 
-        ${isRemoving ? 'opacity-0 translate-x-[-15px] outline-none overflow-hidden' : ''}
+        <div className={`glass-card 
+                        rounded-md border-2 max-w-[450px] min-w-[300px] 
+                        transition-all duration-300 ease-in-out 
+                        ${isRemoving ? 'opacity-0 translate-x-[-15px] outline-none overflow-hidden' : ''}
         `}>
-                <div className="flex items-center justify-between p-2.5 border-b-2 border-blue-300">
+                <div className="flex items-center justify-between p-2.5 border-b-2 border-b-white">
                     <Link to={`boardPage/${boardIndex}`}>
                         <h2 className="font-bold to-gray-800">{title}</h2>
                     </Link>
@@ -63,7 +64,7 @@ export default function Task({ id, boardIndex, title, description }: Props): Rea
                 <p className="p-2.5">{description}</p>
             </div>
             <Modal title="Edit Task" modalRef={modalRef}>
-                <EditTaskModal modalRef={modalRef} boardIndex={boardIndex}/>
+                <EditTaskModal modalRef={modalRef} boardIndex={boardIndex} />
             </Modal>
         </>
     )

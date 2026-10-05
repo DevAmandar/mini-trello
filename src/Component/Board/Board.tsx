@@ -31,7 +31,7 @@ export default function Board({ onClick }: Props): ReactNode {
   }
   return (
     <>
-      <div className='flex justify-between items-center m-6 p-3 rounded-md bg-gray-200 shadow-sm shadow-gray-400'>
+      <div className=' flex justify-between items-center my-6 mx-3.5 p-3 rounded-md bg-gray-200 shadow-sm shadow-gray-400'>
         <Link to="/test" className='font-bold'>{lists[boardIndex].taskTitle}</Link>
         <div className='flex gap-4'>
           <Link to='/'>
@@ -41,7 +41,7 @@ export default function Board({ onClick }: Props): ReactNode {
           <MdAddCircleOutline onClick={showModal} className='cursor-pointer text-icon' size={23} />
         </div>
       </div>
-      <div className='flex gap-2.5 m-7'>
+      <div className='flex gap-2.5 m-7 flex-wrap'>
         {
           lists[boardIndex].lists.map((list, listIndex) => (
             <div key={list.id}>

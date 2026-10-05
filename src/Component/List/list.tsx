@@ -58,7 +58,7 @@ export default function List({ list, listIndex, boardIndex }: Props): ReactNode 
     }
     return (
         <DroppableComponent id={list.id}>
-            <div className={`w-[300px] p-3 bg-gray-200 rounded-md shadow-sm shadow-gray-400 transition-all duration-300 ease-in-out  
+            <div className={`w-[250px] p-3 bg-gray-200 rounded-md shadow-sm shadow-gray-400 transition-all duration-300 ease-in-out  
                 ${isRemoving ? ' opacity-0 translate-x-[-15px] outline-none overflow-hidden ' : ''}`}>
                 <div className='flex justify-between items-center'>
                     <h3 className='font-medium'>{list.title}</h3>
