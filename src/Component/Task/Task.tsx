@@ -47,12 +47,12 @@ export default function Task({ id, boardIndex, title, description }: Props): Rea
     }
     return (
         <>
-        <div className={`glass-card 
-                        rounded-md border-2 max-w-[450px] min-w-[300px] 
-                        transition-all duration-300 ease-in-out 
+            <div className={`glass-card 
+                        rounded-md max-w-[450px] min-w-[300px] text-gray-900 py-1.5
+                        transition-all duration-300 ease-in-out                         
                         ${isRemoving ? 'opacity-0 translate-x-[-15px] outline-none overflow-hidden' : ''}
         `}>
-                <div className="flex items-center justify-between p-2.5 border-b-2 border-b-white">
+                <div className="flex items-center justify-between p-2.5 mx-1.5 border-b-2 border-b-black">
                     <Link to={`boardPage/${boardIndex}`}>
                         <h2 className="font-bold to-gray-800">{title}</h2>
                     </Link>
@@ -61,7 +61,9 @@ export default function Task({ id, boardIndex, title, description }: Props): Rea
                         <MdDeleteOutline onClick={handleRemoveBoard} size={20} className="cursor-pointer" />
                     </div>
                 </div>
-                <p className="p-2.5">{description}</p>
+                <p className="py-2.5 pl-5">
+                    {description}
+                    </p>
             </div>
             <Modal title="Edit Task" modalRef={modalRef}>
                 <EditTaskModal modalRef={modalRef} boardIndex={boardIndex} />

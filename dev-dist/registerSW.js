@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/mini-trello/dev-sw.js?dev-sw', { scope: '/mini-trello/', type: 'classic' })
