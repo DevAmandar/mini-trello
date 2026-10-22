@@ -1,5 +1,5 @@
 // Item.tsx
-import { ReactNode, useContext, useState } from "react";
+import { ReactNode, useContext, useRef, useState } from "react";
 import { ItemType } from "../../Type/item-type";
 import { BoardContext } from "../../context/BoardContext";
 import { ListType } from "../../Type/list-type";
@@ -7,6 +7,7 @@ import { MdDelete } from "react-icons/md";
 // import { ActiveItemContex } from "../../context/ActiveItemContext";
 import { Bounce, toast } from "react-toastify";
 import DraggableComponent from "../../drag and drop/drag/DraggableComponent";
+import ConfirmModal from "../../modal/ConfirmModal";
 
 type Props = {
     item: ItemType
@@ -22,7 +23,7 @@ export default function Item({ item, list, boardIndex }: Props): ReactNode {
         setIsRemoving(true)
         // بعد از انیمیشن، dispatch را صدا بزن
         setTimeout(() => {
-            dispatchLists({ type: 'remove',boardIndex: boardIndex, listId: list.id, itemId: item.id })
+            dispatchLists({ type: 'remove', boardIndex: boardIndex, listId: list.id, itemId: item.id })
             notify()
         }, 300) // هماهنگ با duration انیمیشن
     }
@@ -47,8 +48,14 @@ export default function Item({ item, list, boardIndex }: Props): ReactNode {
         transition: Bounce,
     });
 
+    const confirmModalRef = useRef<HTMLDialogElement | null>(null)
+    //Cofirm Modal
+    const showConfirm = () => {
+        confirmModalRef.current?.showModal()
+    }
+
     return (
-        <DraggableComponent id={item.id} data={{...item, listId:list.id}} >
+        <DraggableComponent id={item.id} data={{ ...item, listId: list.id }} >
             <div
                 // onClick={handleClickItem}
                 className={`
@@ -59,8 +66,9 @@ export default function Item({ item, list, boardIndex }: Props): ReactNode {
                 `}
             >
                 <p>{item.description}</p>
-                <MdDelete onClick={handleRemove} size={20}>delete</MdDelete>
+                <MdDelete onClick={showConfirm} size={20}>delete</MdDelete>
             </div>
+            <ConfirmModal confirm={handleRemove} modalRef={confirmModalRef} />
         </DraggableComponent>
     )
 }

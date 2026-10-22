@@ -5,6 +5,7 @@ import { MdDeleteOutline, MdOutlineModeEdit } from "react-icons/md";
 import { Bounce, toast } from "react-toastify";
 import Modal from "../../modal/Modal";
 import EditTaskModal from "../../modal/EditTaskModal/EditTaskModal"
+import ConfirmModal from "../../modal/ConfirmModal";
 
 type Props = {
     boardIndex: number
@@ -15,6 +16,7 @@ type Props = {
 export default function Task({ id, boardIndex, title, description }: Props): ReactNode {
 
     const modalRef = useRef<HTMLDialogElement | null>(null)
+    const confirmModalRef = useRef<HTMLDialogElement | null>(null)
 
     const [isRemoving, setIsRemoving] = useState(false)
 
@@ -28,6 +30,10 @@ export default function Task({ id, boardIndex, title, description }: Props): Rea
             dispatchLists({ type: 'remove_task', taskId: id })
             notify()
         }, 300)
+    }
+
+    const showConfirm = () => {
+        confirmModalRef.current?.showModal()
     }
 
     const notify = () => toast.success('successfully deletes', {
@@ -48,7 +54,7 @@ export default function Task({ id, boardIndex, title, description }: Props): Rea
     return (
         <>
             <div className={`glass-card 
-                        rounded-md max-w-[450px] min-w-[300px] text-gray-900 py-1.5
+                        rounded-md w-[300px] text-gray-900 py-1.5
                         transition-all duration-300 ease-in-out                         
                         ${isRemoving ? 'opacity-0 translate-x-[-15px] outline-none overflow-hidden' : ''}
         `}>
@@ -57,17 +63,18 @@ export default function Task({ id, boardIndex, title, description }: Props): Rea
                         <h2 className="font-bold to-gray-800">{title}</h2>
                     </Link>
                     <div className="flex justify-center items-center gap-2.5">
-                        <MdOutlineModeEdit onClick={showModal} size={20} className="cursor-pointer" />
-                        <MdDeleteOutline onClick={handleRemoveBoard} size={20} className="cursor-pointer" />
+                        <MdOutlineModeEdit onClick={showModal} size={20} className="cursor-pointer text-gray-500" />
+                        <MdDeleteOutline onClick={showConfirm} size={20} className="cursor-pointer text-gray-500" />
                     </div>
                 </div>
-                <p className="py-2.5 pl-5">
+                <p className="py-2.5 pl-5 italic max-w-[200px] break-words">
                     {description}
-                    </p>
+                </p>
             </div>
             <Modal title="Edit Task" modalRef={modalRef}>
                 <EditTaskModal modalRef={modalRef} boardIndex={boardIndex} />
             </Modal>
+            <ConfirmModal confirm={handleRemoveBoard} modalRef={confirmModalRef} />
         </>
     )
 }

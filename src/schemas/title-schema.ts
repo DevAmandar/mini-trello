@@ -5,7 +5,7 @@ export const TitleSchema = z
     .trim()
     .nonempty("Title cannot be empty")
     .min(3, "Title must be at least 3 characters")
-    .max(20, "Title must be at maximum of 20 characters")
+    .max(100, "Title must be at maximum of 100 characters")
 
 export const TaskSchema = z.object({
     title: z.string().trim().nonempty("Title cannot be empty").min(3, "Title must be at least 3 characters"),

@@ -8,6 +8,7 @@ import { BoardContext } from "../../context/BoardContext";
 import { Bounce, toast } from "react-toastify";
 import DroppableComponent from "../../drag and drop/drop/DroppableComponent";
 import EditTitleListModal from "../../modal/EditTitleListModal/EditTitleListModal";
+import ConfirmModal from "../../modal/ConfirmModal";
 
 type Props = {
     list: ListType
@@ -20,6 +21,7 @@ export default function List({ list, listIndex, boardIndex }: Props): ReactNode 
     const [isRemoving, setIsRemoving] = useState(false)
 
     const modalRef = useRef<HTMLDialogElement | null>(null)
+    const confirmModalRef = useRef<HTMLDialogElement | null>(null)
     const editModalRef = useRef<HTMLDialogElement | null>(null)
 
     const { dispatchLists } = useContext(BoardContext)
@@ -51,7 +53,10 @@ export default function List({ list, listIndex, boardIndex }: Props): ReactNode 
     const showModal = () => {
         modalRef.current?.showModal()
     }
-
+    //Cofirm Modal
+    const showConfirm = () => {
+        confirmModalRef.current?.showModal()
+    }
     //Modal Edit
     const showModalEdit = () => {
         editModalRef.current?.showModal()
@@ -65,7 +70,7 @@ export default function List({ list, listIndex, boardIndex }: Props): ReactNode 
                     <div className='flex gap-2'>
                         <MdOutlineModeEdit onClick={showModalEdit} className="cursor-pointer text-icon" size={18} />
                         <MdAddCircleOutline onClick={showModal} className="cursor-pointer text-icon" size={18} />
-                        <MdDeleteOutline onClick={handleDeleteList} className="cursor-pointer text-icon" size={18} />
+                        <MdDeleteOutline onClick={showConfirm} className="cursor-pointer text-icon" size={18} />
                     </div>
                 </div>
                 <div>
@@ -80,6 +85,7 @@ export default function List({ list, listIndex, boardIndex }: Props): ReactNode 
                 <Modal title={`Edit title list`} modalRef={editModalRef}>
                     <EditTitleListModal boardIndex={boardIndex} listIndex={listIndex} modalRef={editModalRef} />
                 </Modal>
+                <ConfirmModal confirm={handleDeleteList} modalRef={confirmModalRef} />
             </div>
         </DroppableComponent>
     )

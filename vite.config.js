@@ -18,7 +18,7 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
       },
       devOptions: {
-        enabled: true,   // برای تست در حالت dev
+        enabled: false,   // برای تست در حالت dev
       },
     }),
   ],

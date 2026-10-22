@@ -21,7 +21,7 @@ export default function TasksPage(): ReactNode {
                     <button onClick={showModal} className="px-1 py-1.5 font-medium rounded-md text-gray-300 cursor-pointer">Create +</button>
                 </div>
             </header>
-            <div className="mt-20 mx-5 text-white flex items-center justify-center gap-4 flex-wrap">
+            <div className="mt-20 mx-5 text-white flex items-center justify-center gap-4 flex-wrap overflow-y-auto h-[69%]">
                 {lists.map((data, index) => (
                     <Task key={data.taskId} id={data.taskId} boardIndex={index} title={data.taskTitle} description={data.description}/>
                 ))}
